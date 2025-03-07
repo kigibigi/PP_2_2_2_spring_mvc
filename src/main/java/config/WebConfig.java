@@ -1,6 +1,5 @@
-package web.config;
+package config;
 
-import dao.CarDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,7 +13,10 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("web")
+@ComponentScan("config")
+@ComponentScan("controller")
+@ComponentScan("dao")
+@ComponentScan("service")
 public class WebConfig implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;
@@ -47,10 +49,5 @@ public class WebConfig implements WebMvcConfigurer {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
-    }
-
-    @Bean
-    public CarDAO carDAO() {
-        return new CarDAO();
     }
 }

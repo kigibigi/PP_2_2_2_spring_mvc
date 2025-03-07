@@ -1,31 +1,31 @@
-package web.controller;
+package controller;
 
-import dao.CarDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import service.CarService;
 
 @Controller
-//@RequestMapping("/cars")
+@RequestMapping("/cars")
 public class CarsController {
 
-    private final CarDAO carDAO;
+    private final CarService carService;
 
     @Autowired
-    public CarsController(CarDAO carDAO) {
-        this.carDAO = carDAO;
+    public CarsController(CarService carService) {
+        this.carService = carService;
     }
 
-    @GetMapping("cars")
-    public String order(@RequestParam(value = "count", required = false) Integer count,
-                        Model model) {
+    @GetMapping
+    public String getCars(@RequestParam(value = "count", required = false) Integer count,
+                          Model model) {
         if (count != null) {
-            model.addAttribute("cars", carDAO.getCarsByOrder(count));
+            model.addAttribute("cars", carService.getCarsByOrder(count));
         } else {
-            model.addAttribute("cars", carDAO.getCars());
+            model.addAttribute("cars", carService.getCars());
         }
         return "/cars";
     }

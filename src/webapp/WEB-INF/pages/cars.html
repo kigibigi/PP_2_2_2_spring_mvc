@@ -8,10 +8,6 @@
 <body>
 <div>
     <th:block th:each="car : ${cars}">
-<!--        <h1 th:text="id = ${car.getId()}"-->
-<!--            th:text="model = ${car.getModel()}"-->
-<!--            th:text="series= ${car.getSeries()}">-->
-<!--        </h1>-->
         <h1 th:text="${car}"/>
     </th:block>
 </div>

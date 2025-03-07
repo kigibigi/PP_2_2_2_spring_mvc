@@ -3,10 +3,10 @@ package dao;
 import java.util.ArrayList;
 import java.util.List;
 import model.Car;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
-public class CarDAO {
+@Repository
+public class CarDaoListImpl implements CarDao {
     private static int CARS_COUNT = 1;
     private List<Car> cars;
 
