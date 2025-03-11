@@ -1,29 +1,24 @@
-package service;
+package spring_mvc.service;
 
-import dao.CarDao;
-import model.Car;
+import spring_mvc.dao.CarDao;
+import spring_mvc.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CarServiceListImpl implements CarService{
+public class CarServiceImpl implements CarService{
 
     private CarDao carDao;
 
     @Autowired
-    public CarServiceListImpl(CarDao carDao) {
+    public CarServiceImpl(CarDao carDao) {
         this.carDao = carDao;
     }
 
     @Override
-    public List<Car> getCars() {
-        return carDao.getCars();
-    }
-
-    @Override
-    public List<Car> getCarsByOrder(int index) {
+    public List<Car> getCarsByOrder(Integer index) {
         return carDao.getCarsByOrder(index);
     }
 }

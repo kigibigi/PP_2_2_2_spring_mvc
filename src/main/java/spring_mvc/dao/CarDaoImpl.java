@@ -1,12 +1,12 @@
-package dao;
+package spring_mvc.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.Car;
+import spring_mvc.model.Car;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CarDaoListImpl implements CarDao {
+public class CarDaoImpl implements CarDao {
     private static int CARS_COUNT = 1;
     private List<Car> cars;
 
@@ -20,12 +20,9 @@ public class CarDaoListImpl implements CarDao {
         cars.add(new Car(CARS_COUNT++, "Car5", 55));
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
-    public List<Car> getCarsByOrder(int index) {
-        return cars.stream()
-                .limit(index).toList();
+    @Override
+    public List<Car> getCarsByOrder(Integer index) {
+        return index != null ? cars.stream().limit(index).toList()
+                             : cars;
     }
 }

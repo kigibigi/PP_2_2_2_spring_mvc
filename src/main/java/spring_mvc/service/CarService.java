@@ -1,6 +1,6 @@
-package service;
+package spring_mvc.service;
 
-import model.Car;
+import spring_mvc.model.Car;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,7 +8,5 @@ import java.util.List;
 @Service
 public interface CarService {
 
-    List<Car> getCars();
-
-    List<Car> getCarsByOrder(int index);
+    List<Car> getCarsByOrder(Integer index);
 }

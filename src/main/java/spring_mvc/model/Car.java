@@ -1,4 +1,4 @@
-package model;
+package spring_mvc.model;
 
 public class Car {
     private int id;
@@ -39,7 +39,7 @@ public class Car {
     public String toString() {
         return "Car > " +
                "id=" + id +
-               ", model='" + model + '\'' +
+               ", spring_mvc.model='" + model + '\'' +
                ", series=" + series;
     }
 }

@@ -1,14 +1,11 @@
-package dao;
+package spring_mvc.dao;
 
-import model.Car;
+import spring_mvc.model.Car;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface CarDao {
-
-    List<Car> getCars();
-
-    List<Car> getCarsByOrder(int index);
+    List<Car> getCarsByOrder(Integer index);
 }
